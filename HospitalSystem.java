@@ -254,3 +254,4 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
 // This is the Manager class
 // Displaying the hospital main menu
 //"Set up basic project structure"
+//"Implemented Merge Sort for employee names"
