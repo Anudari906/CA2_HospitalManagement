@@ -256,3 +256,4 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
 //"Set up basic project structure"
 //"Implemented Merge Sort for employee names"
 //"Implemented Merge Sort for employee names"
+//"Implemented Merge Sort for employee names"
