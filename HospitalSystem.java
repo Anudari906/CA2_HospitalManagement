@@ -250,3 +250,4 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
 }
 
 }
+// This is the Manager class
