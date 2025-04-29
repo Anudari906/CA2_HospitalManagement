@@ -14,6 +14,7 @@ import java.util.*;
 public class HospitalSystem {
     private static List<Employee> employees = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
+    
 
     public static void main(String[] args) {
         // Dummy Managers 
@@ -32,6 +33,7 @@ public class HospitalSystem {
         
         // SORT the employees before menu starts
         employees = mergeSort(employees);  // <--- ADD THIS LINE
+        System.out.println("Welcome to the Hospital Management System!");
 
         boolean running = true;
         while (running) {
@@ -71,7 +73,6 @@ public class HospitalSystem {
     System.out.println("Employees sorted successfully!\nShowing first 20 employees:");
     for (int i = 0; i < Math.min(20, employees.size()); i++) {
         System.out.println((i + 1) + ". " + employees.get(i).getEmployeeName());
-        System.out.println("Welcome to the Hospital Management System!");
         System.out.println("New employee added successfully!");
     }
 }
@@ -207,9 +208,11 @@ public class HospitalSystem {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input, please enter a number.");
+                System.out.println("Thank you for using our system!");
             }
         }
         return choice;
+        
     }
 
     private static List<Employee> mergeSort(List<Employee> list) {
@@ -249,6 +252,7 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
     }
 
     return merged;
+    
 }
 
 }
