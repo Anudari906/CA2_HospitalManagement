@@ -71,6 +71,8 @@ public class HospitalSystem {
     System.out.println("Employees sorted successfully!\nShowing first 20 employees:");
     for (int i = 0; i < Math.min(20, employees.size()); i++) {
         System.out.println((i + 1) + ". " + employees.get(i).getEmployeeName());
+        System.out.println("Welcome to the Hospital Management System!");
+        System.out.println("New employee added successfully!");
     }
 }
     private static void searchEmployee() {
@@ -250,4 +252,4 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
 }
 
 }
-//"Implemented Add New Employee feature"
+
