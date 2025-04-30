@@ -129,7 +129,7 @@ public class HospitalSystem {
             manager = new Manager("Nurse Adams", "Head Nurse");
             break;
         case 3:
-            manager = new Manager("Mr. Brown", "Admin Manager");
+            manager = new Manager("Mr. Brown", "Administrator");
             break;
     }
     System.out.println("Select a Department:");
