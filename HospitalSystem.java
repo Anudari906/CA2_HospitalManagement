@@ -218,6 +218,7 @@ public class HospitalSystem {
     private static List<Employee> mergeSort(List<Employee> list) {
     if (list.size() <= 1) {
         return list;
+        // MergeSort ensures stable order for employees.
     }
 
     int middle = list.size() / 2;
