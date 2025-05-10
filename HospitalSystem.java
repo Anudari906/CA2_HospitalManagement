@@ -6,7 +6,7 @@ package CA_2;
 
 /**
  *
- * @aut2hor anudari
+ * @author anudari
  */
 import java.util.*;
 
@@ -14,11 +14,10 @@ import java.util.*;
 public class HospitalSystem {
     private static List<Employee> employees = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
-    
 
     public static void main(String[] args) {
         // Dummy Managers 
-        Manager headSurgeon = new Manager ("Dr. Alice", "Chief Surgeon");
+        Manager headSurgeon = new Manager ("Dr.Alice", "Chief Surgeon");
         Manager nurseManager = new Manager("Nurse Bob", "Head Nurse");
         
         // Dummy Departments
@@ -27,13 +26,28 @@ public class HospitalSystem {
         
         // Dummy Employees
         employees.add(new Employee("Nurse John", nurseManager, emergency));
-        employees.add(new Employee("Dr. Emily", headSurgeon, surgery));
+        employees.add(new Employee("Dr.Emily", headSurgeon, surgery));
         employees.add(new Employee("Nurse Steve", nurseManager, surgery));
-        employees.add(new Employee("Dr. Kate" , headSurgeon, emergency));
-        
+        employees.add(new Employee("Dr.Kate" , headSurgeon, emergency));
+        employees.add(new Employee("Dr. Alice", headSurgeon, surgery));
+        employees.add(new Employee("Nurse Rachel", nurseManager, emergency));
+        employees.add(new Employee("Dr. Mark", headSurgeon, emergency));
+        employees.add(new Employee("Nurse Olivia", nurseManager, surgery));
+        employees.add(new Employee("Dr. Brian", headSurgeon, emergency));
+        employees.add(new Employee("Nurse Amy", nurseManager, emergency));
+        employees.add(new Employee("Dr. Daniel", headSurgeon, surgery));
+        employees.add(new Employee("Nurse Sarah", nurseManager, surgery));
+        employees.add(new Employee("Dr. Chloe", headSurgeon, surgery));
+        employees.add(new Employee("Nurse Mike", nurseManager, emergency));
+        employees.add(new Employee("Dr. Luke", headSurgeon, surgery));
+        employees.add(new Employee("Nurse Emma", nurseManager, surgery));
+        employees.add(new Employee("Dr. James", headSurgeon, emergency));
+        employees.add(new Employee("Nurse Bella", nurseManager, emergency));
+        employees.add(new Employee("Dr. Zoe", headSurgeon, surgery));
+        employees.add(new Employee("Nurse Liam", nurseManager, emergency));
+
         // SORT the employees before menu starts
         employees = mergeSort(employees);  // <--- ADD THIS LINE
-        System.out.println("Welcome to the Hospital Management System!");
 
         boolean running = true;
         while (running) {
@@ -55,7 +69,7 @@ public class HospitalSystem {
                     // We will add employee adding code here
                     break;
                 case GENERATE_RANDOM:
-                    generateRandomEmployees();
+                    System.out.println("Generating random employees...");
                     // We will add random generation code here
                     break;
                 case EXIT:
@@ -65,6 +79,7 @@ public class HospitalSystem {
             }
         }
     }
+    // Placeholder – implement sorting later
     private static void sortEmployees() {
     if (employees.size() <= 1) {
         return;
@@ -73,9 +88,9 @@ public class HospitalSystem {
     System.out.println("Employees sorted successfully!\nShowing first 20 employees:");
     for (int i = 0; i < Math.min(20, employees.size()); i++) {
         System.out.println((i + 1) + ". " + employees.get(i).getEmployeeName());
-        System.out.println("New employee added successfully!");
     }
-}
+    
+}   // Placeholder – implement search later
     private static void searchEmployee() {
     System.out.print("Enter the employee name to search: ");
     String searchName = scanner.nextLine().replaceAll("\\s+", " ").trim();
@@ -109,7 +124,7 @@ public class HospitalSystem {
     if (!found) {
         System.out.println("Employee NOT found in the system.");
     }
-}
+}   // Adds a new employee with user input and validation
     private static void addNewEmployee() {
     System.out.print("Enter the employee name: ");
     String name = scanner.nextLine().trim();
@@ -129,7 +144,7 @@ public class HospitalSystem {
             manager = new Manager("Nurse Adams", "Head Nurse");
             break;
         case 3:
-            manager = new Manager("Mr. Brown", "Administrator");
+            manager = new Manager("Mr. Brown", "Admin Manager");
             break;
     }
     System.out.println("Select a Department:");
@@ -156,6 +171,31 @@ public class HospitalSystem {
 
     System.out.println("New employee added successfully!");
 }
+    private static void generateRandomEmployees() {
+    String[] randomNames = {"Alex", "Taylor", "Jordan", "Casey", "Morgan", "Chris", "Sam", "Robin", "Jamie", "Pat"};
+    String[] managerTypes = {"Chief Surgeon", "Head Nurse", "Admin Manager"};
+    String[] managerNames = {"Dr. Smith", "Nurse Adams", "Mr. Brown"};
+    String[] departments = {"Emergency Room", "Surgery", "Administration"};
+
+    Random rand = new Random();
+    int numberToGenerate = rand.nextInt(5) + 1; // Generate between 1 to 5 random employees
+
+    for (int i = 0; i < numberToGenerate; i++) {
+        String name = randomNames[rand.nextInt(randomNames.length)];
+        String managerName = managerNames[rand.nextInt(managerNames.length)];
+        String managerType = managerTypes[rand.nextInt(managerTypes.length)];
+        String departmentName = departments[rand.nextInt(departments.length)];
+
+        Manager manager = new Manager(managerName, managerType);
+        Department department = new Department(departmentName);
+        Employee employee = new Employee(name, manager, department);
+
+        employees.add(employee);
+    }
+
+    System.out.println(numberToGenerate + " random employees generated successfully!");
+}
+
     private static int getValidatedInput(int min, int max) {
         int choice = -1;
         while (choice < min || choice > max) {
@@ -168,31 +208,8 @@ public class HospitalSystem {
     }
     return choice;
             
-}
-    private static void generateRandomEmployees() {
-    String[] randomNames = {"Alex", "Taylor", "Jordan", "Casey", "Morgan", "Chris", "Sam", "Robin", "Jamie", "Pat"};
-    String[] managerTypes = {"Chief Surgeon", "Head Nurse", "Admin Manager"};
-    String[] managerNames = {"Dr. Smith", "Nurse Adams", "Mr. Brown"};
-    String[] departments = {"Emergency Room", "Surgery", "Administration"};
+        }
     
-    Random rand = new Random();
-    int numberToGenerate = rand.nextInt(5) + 1; //Generate between 1 to 5 random employees
-    
-    for (int u = 0; i < numberToGenerate; i++) {
-        String name = randomNames[rand.nextInt(randomNames.length)];
-        String managerName = managerNames[rand.nextInt(managerNames.length)];
-        String managerType = managerTypes[rand.nextInt(managerTypes.length)];
-        String departmentName = departments[rand.nextInt(departments.length)];
-        
-        Manager manager = new Manager(managerName, managerType);
-        Department department = new Department (departmentName);
-        Employee employee = new Employee (name, manager, department);
-        
-        employees.add(employee);
-    }
-    System.out.println(numberToGenerate + " random employee generated succesfully!");
-    }
-        
     private static void showMenu() {
         System.out.println("\n=== Hospital Management Menu ===");
         for (int i = 0; i < MenuOption.values().length; i++) {
@@ -208,17 +225,14 @@ public class HospitalSystem {
                 choice = Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input, please enter a number.");
-                System.out.println("Thank you for using our system!");
             }
         }
         return choice;
-        
     }
 
     private static List<Employee> mergeSort(List<Employee> list) {
     if (list.size() <= 1) {
         return list;
-        // MergeSort ensures stable order for employees.
     }
 
     int middle = list.size() / 2;
@@ -253,8 +267,6 @@ private static List<Employee> merge(List<Employee> left, List<Employee> right) {
     }
 
     return merged;
-    
 }
 
 }
-
